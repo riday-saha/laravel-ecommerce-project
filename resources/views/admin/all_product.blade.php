@@ -7,6 +7,7 @@
             display: flex;
             justify-content: center;
             text-align: center;   
+            
         }
         table{
 
@@ -48,7 +49,7 @@
       <div class="page-content">
 
         <div class="container-fluid">
-        <h2 class="" style="text-align: center; padding: 20px; color:white">Category</h2>
+        <h2 class="" style="text-align: center; padding-top: 25px; color:white">All Products</h2>
         </div>
 
         <div>
@@ -66,19 +67,20 @@
                 @foreach ($view_product as $view_products )
                 <tr>
                     <td>{{$view_products->pro_title}}</td>
-                    <td>{{$view_products->pro_description}}</td>
-                    <td>
-                        
+                    <td>{{ Str::limit($view_products->pro_description, 80) }}</td>
+                    <td>    
                         {{$view_products->category->category_name}}
                     </td>
                     <td>{{$view_products->pro_price}}</td>
                     <td>{{$view_products->pro_quantity}}</td>
                     <td><img src="{{ asset('products/' . $view_products->pro_image) }}" style="height: 150px; width:200px;" alt=""></td>
-                    <td><a href="" class="btn btn-warning">Edit</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{route('edit.product',$view_products->id)}}" class="btn btn-warning">Edit</a></td>
+                    <td><a href="{{route('delete.product',$view_products->id)}}" class="btn btn-danger">Delete</a></td>
                 </tr>
                 @endforeach
             </table>
+
+            <div class="pagination">{{$view_product->links()}}</div>
             
         </div>
         

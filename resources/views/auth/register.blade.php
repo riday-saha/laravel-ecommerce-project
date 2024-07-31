@@ -1,4 +1,16 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html>
+
+@include('home.homecss')
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    @include('home.header')  
+  
+  
+
+  <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -64,3 +76,6 @@
         </div>
     </form>
 </x-guest-layout>
+</div>
+</body>
+</html>

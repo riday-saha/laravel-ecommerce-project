@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+@include('home.homecss')
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    @include('home.header')  
+
+
+
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
@@ -25,3 +37,9 @@
         </div>
     </form>
 </x-guest-layout>
+
+
+
+</div>
+</body>
+</html>

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name',20);
             $table->string('email')->unique();
-            $table->string('phone',11)->nullable(); // Allow phone to be null
-            $table->string('address', 40)->nullable(); // Set max length for address and allow it to be null
+            $table->string('phone',11); // Allow phone to be null
+            $table->string('address', 100); // Set max length for address and allow it to be null
             $table->enum('user_type', ['admin', 'normal'])->default('normal'); // Use lowercase for consistency
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

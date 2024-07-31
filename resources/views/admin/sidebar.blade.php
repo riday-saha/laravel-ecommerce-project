@@ -9,15 +9,15 @@
     </div>
     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
     <ul class="list-unstyled">
-            <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="{{route('admin.category')}}"> <i class="icon-grid"></i>Category </a></li>
+            <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><a href="{{route('admin.dashboard')}}"> <i class="icon-home"></i>Home </a></li>
+            <li class="{{ request()->routeIs('admin.category') ? 'active' : '' }}"><a href="{{route('admin.category')}}"> <i class="icon-grid"></i>Category </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="{{route('add.product')}}"><i class="icon-padnote"></i>Add Product</a></li>
-                <li><a href="{{route('all.product')}}"><i class="fa fa-briefcase"></i>View Product</a></li>
-                <li><a href="#"><i class="fa fa-truck"></i>All Orders</a></li>
+                <li class="{{ request()->routeIs('add.product') ? 'active' : '' }}"><a href="{{route('add.product')}}"><i class="icon-padnote"></i>Add Product</a></li>
+                <li class="{{ request()->routeIs('all.product') ? 'active' : '' }}"><a href="{{route('all.product')}}"><i class="fa fa-briefcase"></i>View Product</a></li>
               </ul>
             </li>
+            <li class="{{ request()->routeIs('all.order') ? 'active' : '' }}"><a href=" {{route('all.order')}} "><i class="fa fa-truck"></i>All Orders</a></li>
     </ul>
     
   </nav>

@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav  ">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="shop.html">
@@ -37,8 +37,18 @@
 
           @if (Route::has('login'))
           @auth
-          <a href="">
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+
+          
+          @if (Auth::user()->user_type === 'admin')
+          <a href="{{route('admin.dashboard')}}">Admin</a>
+          @endif
+
+          <a href="{{route('order')}}">
+            Orders
+          </a>
+
+          <a href="{{route('add.cart')}}">
+            <i class="fa fa-shopping-bag" aria-hidden="true"> [ {{$add_cart_count}} ]</i>
           </a>
 
           <form method="POST" action="{{ route('logout') }}" >
@@ -55,6 +65,14 @@
             <span>
               Login
             </span>
+          </a>
+
+          <a
+              href="{{ route('register') }}"
+              class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+          >
+          <i class="fa fa-vcard" aria-hidden="true"></i>
+              Register
           </a>
           @endauth
           @endif
